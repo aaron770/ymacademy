@@ -4,5 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyDIdS3XaXBPJvyNCHudRtG99BvW--bOJGQ",
+    authDomain: "torah-academy.firebaseapp.com",
+    databaseURL: "https://torah-academy.firebaseio.com",
+    projectId: "torah-academy",
+    storageBucket: "torah-academy.appspot.com",
+    messagingSenderId: "283340384588"
+  }
 };
