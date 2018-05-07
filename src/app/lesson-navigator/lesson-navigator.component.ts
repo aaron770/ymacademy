@@ -19,7 +19,11 @@ export class LessonNavigatorComponent implements OnInit {
   ngOnInit() {
     /* this.coursesObservable = this.getCourses('/courses');
     console.log(this.coursesObservable); */
-    this.coursesObservable.subscribe(res => console.log(res));
+
+    //good
+    //this.coursesObservable.subscribe(res => console.log(res));
+    
+    
     //console.log(this.coursesObservable);
   }
 
