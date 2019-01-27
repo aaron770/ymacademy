@@ -1,3 +1,103 @@
-<p>
-  login works!
-</p>
+<!-- need to move each login to own component -->
+<div class="container" *ngIf="userRole == 'student'">
+  <div class="row">
+    <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="card card-signin flex-row my-5">
+        <div class="card-img-left d-none d-md-flex">
+           <!-- Background image for card set in CSS! -->
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">Register</h5>
+          <form class="form-signin" [formGroup]="signUpForm">
+            <div class="form-label-group">
+              <input type="text" id="inputUserame" class="form-control" formControlName="displayName" placeholder="Username" required autofocus>
+              <label for="inputUserame">Username</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" class="form-control" formControlName="email" placeholder="Email address" required>
+              <label for="inputEmail">Email address</label>
+            </div>
+            
+            <hr>
+
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Password" required>
+              <label for="inputPassword">Password</label>
+            </div>
+            
+            <div class="form-label-group">
+              <input type="password" id="inputConfirmPassword" class="form-control" formControlName="confirmPassword" placeholder="Password" required>
+              <label for="inputConfirmPassword">Confirm password</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" id="currentClass" class="form-control" formControlName="currentClass" placeholder="Current Class" >
+                <label for="currentClass">Current class</label>
+            </div>
+            <!-- <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">student</label>
+            </div> -->
+
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" (click)="emailSignUp()">Register</button>
+            <a class="d-block text-center mt-2 small" href="#">Sign In</a>
+            <hr class="my-4">
+            
+            <button class="btn btn-lg btn-google btn-block text-uppercase" (click)="googleUserSignUp()"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
+<!--             <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="userRole == teacher" >
+   I am a teacher
+</div>
+
+
+
+
+
+<div *ngIf="_auth.user | async; then authenticated else guest">
+  <!-- template will replace this div -->
+</div>
+
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+<h3>Howdy, GUEST</h3>
+<p>Login to get started...</p>
+
+<button (click)="_auth.googleLogin()">
+  <i class="fa fa-google"></i> Connect Google
+</button>
+
+</ng-template>
+
+<app-user-profile></app-user-profile>
+<!-- User logged in -->
+<ng-template #authenticated>
+<div *ngIf="_auth.user | async as user;">
+  <h3>Hello, {{ user.displayName }}</h3>
+  <p>UID: {{ user.uid }}</p>
+  <!-- <p>Favorite Color: {{ user?.favoriteColor }} </p> -->
+  <!-- <h2>Hero Detail</h2> -->
+<!--   <h3><i>Please enter valid idetification</i></h3> -->
+  <form > <!-- [formGroup]="signUpForm" -->
+    <!-- <div class="form-group">
+      <label class="center-block">Name:
+        <input class="form-control"  formControlName="name">
+      </label>
+    </div> -->
+    <p>Form value: {{ signUpForm.value | json }}</p>
+<p>Form status: {{ signUpForm.status | json }}</p>
+  <div *ngIf="_auth.user.roles" >
+  </div>
+  </form>
+  <button (click)="_auth.addRoleStudent(user)">Set up user</button>
+  <button (click)="_auth.logout()">Logout</button>
+</div>
+</ng-template>
