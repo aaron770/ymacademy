@@ -1,0 +1,8 @@
+[{"question": "Why learn PHP?", "choices": ["It pays really well", "It’s the only language that does server side scripting", "It is the most flexible language", "It is used on 80 percent of the web"], "correctAnswer":3},
+{"question": "What does a sandbox in web development mean?", "choices": ["It’s when the work starts getting dirty", "When something is really easy to make it’s called a sandbox", "A secure environment to develop your projects without sending it into production", "When there is too much of a mess and you have to start over"], "correctAnswer":2},
+{"question": "what does Xampp contain?", "choices": ["MySql database", "PHP", "Apache web server", "All of the above"], "correctAnswer":3},
+{"question": "Should you put a PHPinfo function on your website and why?", "choices": ["Yes so then people can tell how your PHP code works and contribute to your work", "It doesn’t matter", "No it slows down your program", "No it is not safe to use because then hackers will have an easier time to hack your site"], "correctAnswer":3},
+{"question": "What is the best way to inbed PHP in  HTML?", "choices": ["<?php  ?>", "<?  ?>", "<%  %>"], "correctAnswer":0},
+{"question": "How can you outputt html using PHP?", "choices": ["Echo", "Print", "You can just add it inside a PHP tag since PHP was created for templating", "All of the above"], "correctAnswer":3},
+{"question": "Why is it important to indent your code?", "choices": ["Why not ", "It make it easier to read ", "You shouldn’t it slows down the computer"], "correctAnswer":1}
+]

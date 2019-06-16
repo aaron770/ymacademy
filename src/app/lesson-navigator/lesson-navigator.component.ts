@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-//import { AngularFireDatabase } from 'angularfire2/database'; 
+// import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-import { AngularFirestore } from 'angularfire2/firestore'
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'app-lesson-navigator',
@@ -12,7 +12,7 @@ export class LessonNavigatorComponent implements OnInit {
 
   coursesObservable: Observable<any[]>;
 
-  constructor(private db: AngularFirestore) { 
+  constructor(private db: AngularFirestore) {
     this.coursesObservable = db.collection('/courses').valueChanges();
   }
 
@@ -20,11 +20,10 @@ export class LessonNavigatorComponent implements OnInit {
     /* this.coursesObservable = this.getCourses('/courses');
     console.log(this.coursesObservable); */
 
-    //good
-    //this.coursesObservable.subscribe(res => console.log(res));
-    
-    
-    //console.log(this.coursesObservable);
+    // good
+    // this.coursesObservable.subscribe(res => console.log(res));
+
+    // console.log(this.coursesObservable);
   }
 
   /* getCourses(listPath): Observable<any[]> {

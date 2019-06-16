@@ -5,7 +5,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 // import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { AuthService } from './core/auth.service';
+import { LessonService } from './lesson/lesson.service';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -22,6 +24,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './core/auth.guard';
+import { MultipleChoiceComponent } from './lesson/multiple-choice/multiple-choice.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RecordingComponent } from './lesson/recording/recording.component';
+import { UploadFileService } from './shared/services/upload-file.service';
+import { ManageLessonCategoriesService } from './shared/services/manage-lesson-categories.service';
+import { UploadFile } from './shared/models/upload-file';
+// import { environment } from ''
+
+
 // tslint:disable-next-line:import-spacing
 // @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
@@ -44,17 +55,22 @@ const appRoutes: Routes = [
     LessonComponent,
     NavbarComponent,
     UserProfileComponent,
-    LogoutComponent
+    LogoutComponent,
+    MultipleChoiceComponent,
+    RecordingComponent,
+    // UploadFile
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'academy-dev'),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     FormsModule,
     // MatButtonModule,
     // MatCheckboxModule,
     // BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
@@ -62,7 +78,7 @@ const appRoutes: Routes = [
     // AngularFireAuthModule,
     BrowserModule,
     CoreModule  ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, LessonService, UploadFileService, ManageLessonCategoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

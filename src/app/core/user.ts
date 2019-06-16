@@ -22,6 +22,15 @@ export interface Teacher {
 
 }
 
+export interface ReportCard {
+    TanachEsentials?: string[];
+    rashi?: string[];   // 1 -3 don't learn rashi
+    content?: string[];
+    vacabularySkills?: string[];
+    passageComprehention?: string[];
+    keriah?: string[];
+}
+
 export interface User {
     uid: string;
     email: string;

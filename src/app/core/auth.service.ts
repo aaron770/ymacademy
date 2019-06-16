@@ -87,7 +87,7 @@ export class AuthService {
 
   addRoleStudent(user) {
     const rewardsRef: AngularFirestoreDocument<Rewards> = this.afs.doc(`rewards/${user.uid}`);
-    const reportCardRef: AngularFirestoreDocument<any> = this.afs.doc(`reportCards/${user.uid}`);
+    // const reportCardRef: AngularFirestoreDocument<any> = this.afs.doc(`reportCards/${user.currentClass}/${user.uid}`);
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
     // TODO: need to set current class to School[currentClass]
     // const currentClass: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
@@ -109,6 +109,8 @@ export class AuthService {
 
     // userRef.update(classes);
     userRef.set(data, { merge: true});
+
+    // reportCardRef.set(data, { merge: true});
 
     // setting up Rewards
     const initialRewardData: Rewards = {

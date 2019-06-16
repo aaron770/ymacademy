@@ -15,6 +15,7 @@
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
     "@angular/core": "^5.2.0",
+    "@angular/fire": "^5.2.1",
     "@angular/forms": "^5.2.0",
     "@angular/http": "^5.2.0",
     "@angular/platform-browser": "^5.2.0",
@@ -25,6 +26,7 @@
     "core-js": "^2.5.4",
     "firebase": "^4.6.2",
     "npm": "^5.8.0",
+    "recordrtc": "^5.5.4",
     "rxjs": "^5.5.8",
     "tslib": "^1.9.0",
     "zone.js": "^0.8.25"
